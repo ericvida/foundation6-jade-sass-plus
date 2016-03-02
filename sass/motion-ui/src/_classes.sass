@@ -1,0 +1,162 @@
+// scss-lint:disable ImportantRule, SpaceAfterComma, SingleLinePerProperty
+
+=-motion-ui-defaults
+  transition-duration: map-get($motion-ui-speeds, default)
+  transition-timing-function: map-get($motion-ui-easings, default)
+
+// Transitions
+// - - - - - - - - - - - - - - -
+=motion-ui-transitions
+  // Slide
+  .slide-in-down
+    +mui-slide(in, down)
+
+  .slide-in-left
+    +mui-slide(in, right)
+
+  .slide-in-up
+    +mui-slide(in, up)
+
+  .slide-in-right
+    +mui-slide(in, left)
+
+  .slide-out-down
+    +mui-slide(out, down)
+
+  .slide-out-right
+    +mui-slide(out, right)
+
+  .slide-out-up
+    +mui-slide(out, up)
+
+  .slide-out-left
+    +mui-slide(out, left)
+
+  // Fade
+  .fade-in
+    +mui-fade(in, 0, 1)
+
+  .fade-out
+    +mui-fade(out, 1, 0)
+
+  // Hinge
+  .hinge-in-from-top
+    +mui-hinge(in, top)
+
+  .hinge-in-from-right
+    +mui-hinge(in, right)
+
+  .hinge-in-from-bottom
+    +mui-hinge(in, bottom)
+
+  .hinge-in-from-left
+    +mui-hinge(in, left)
+
+  .hinge-in-from-middle-x
+    +mui-hinge(in, top, center)
+
+  .hinge-in-from-middle-y
+    +mui-hinge(in, right, center)
+
+  .hinge-out-from-top
+    +mui-hinge(out, top)
+
+  .hinge-out-from-right
+    +mui-hinge(out, right)
+
+  .hinge-out-from-bottom
+    +mui-hinge(out, bottom)
+
+  .hinge-out-from-left
+    +mui-hinge(out, left)
+
+  .hinge-out-from-middle-x
+    +mui-hinge(out, top, center)
+
+  .hinge-out-from-middle-y
+    +mui-hinge(out, right, center)
+
+  // Scale
+  .scale-in-up
+    +mui-zoom(in, 0.5, 1)
+
+  .scale-in-down
+    +mui-zoom(in, 1.5, 1)
+
+  .scale-out-up
+    +mui-zoom(out, 1, 1.5)
+
+  .scale-out-down
+    +mui-zoom(out, 1, 0.5)
+
+  // Spin
+  .spin-in
+    +mui-spin(in, cw)
+
+  .spin-out
+    +mui-spin(out, cw)
+
+  .spin-in-ccw
+    +mui-spin(in, ccw)
+
+  .spin-out-ccw
+    +mui-spin(out, ccw)
+
+  // Transition Modifiers
+  // - - - - - - - - - - - - - - -
+
+  @each $name, $value in $motion-ui-speeds
+    @if $name != default
+      .#{$name}
+        transition-duration: $value !important
+
+  @each $name, $value in $motion-ui-easings
+    @if $name != default
+      .#{$name}
+        transition-timing-function: $value !important
+
+  @each $name, $value in $motion-ui-delays
+    @if $name != default
+      .#{$name}-delay
+        transition-delay: $value !important
+
+// Animations
+// - - - - - - - - - - - - - - -
+=motion-ui-animations
+  .shake
+    +mui-animation(shake)
+
+  .spin-cw
+    +mui-animation(spin)
+
+  .spin-ccw
+    +mui-animation(spin(ccw))
+
+  .wiggle
+    +mui-animation(wiggle)
+
+  .shake,
+  .spin-cw,
+  .spin-ccw,
+  .wiggle
+    animation-duration: map-get($motion-ui-speeds, default)
+
+  // Animation Modifiers
+  // - - - - - - - - - - - - - - -
+  .infinite
+    animation-iteration-count: infinite
+
+  @each $name, $value in $motion-ui-speeds
+    @if $name != default
+      .#{$name}
+        animation-duration: $value !important
+
+  @each $name, $value in $motion-ui-easings
+    @if $name != default
+      .#{$name}
+        animation-timing-function: $value !important
+
+  @each $name, $value in $motion-ui-delays
+    @if $name != default
+      .#{$name}-delay
+        animation-delay: $value !important
